@@ -17,7 +17,7 @@
 #  with a 0 exit code `bitrise` will register your Step as "successful".
 # Any non zero exit code will be registered as "failed" by `bitrise`.
 
-if ![[ $BITRISE_GIT_MESSAGE == *"Merge pull request"* ]]; then
+if [[ $BITRISE_GIT_MESSAGE != *"Merge pull request"* ]]; then
   echo "This commit it's not a merge commit"
   exit 0
 fi
