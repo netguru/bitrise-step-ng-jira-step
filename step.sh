@@ -34,12 +34,15 @@ envman add --key JIRA_ISSUE --value $JIRA_ISSUE
 # Generate comment body
 
 export COMMENT_BODY="Pull request for task $JIRA_ISSUE was successfuly merged\nBuild number: $BITRISE_BUILD_NUMBER\nDownload url: $BITRISE_BUILD_URL"
-
+comment_url = $host/rest/api/2/issue/$JIRA_ISSUE/comment
+echo "$comment_url" 
 # add comment
-curl -D- -o /dev/null -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"body\": \"$COMMENT_BODY\"}" $host/rest/api/2/issue/$JIRA_ISSUE/comment
+curl -D- -o /dev/null -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"body\": \"$COMMENT_BODY\"}" $comment_url
 
+transition_url = $host/rest/api/2/issue/$JIRA_ISSUE/transitions
+echo "$transition_url"
 # move to ready for qa
-res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" $host/rest/api/2/issue/$JIRA_ISSUE/transitions)
+res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" transition_url)
 
 # if task was no_qa move directly to client
 if [ "$res" != "204" ]; then
