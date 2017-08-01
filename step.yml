@@ -65,7 +65,7 @@ toolkit:
 
 
 inputs:
-  - JIRA_USER:
+  - user:
     opts:
       title: "JIRA User"
       summary: JIRA User
@@ -74,7 +74,7 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []
-  - JIRA_PASSWORD:
+  - password:
     opts:
       title: "JIRA Password"
       summary: Password for supplied user
@@ -83,7 +83,7 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []
-  - JIRA_HOST:
+  - host:
     opts:
       title: "JIRA Host"
       summary: The host used to connect with JIRA API
@@ -92,7 +92,7 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []
-  - JIRA_QA_TRANSITION_ID:
+  - qa_transition_id:
     opts:
       title: "JIRA QA transition ID"
       summary: Correct transition id for switching ticket to qa.
@@ -101,7 +101,7 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []    
-  - JIRA_NO_QA_TRANSITION_ID:
+  - no_qa_transition_id:
     opts:
       title: "JIRA NO QA transition ID"
       summary: Correct transition id for switching ticket directly to done.
