@@ -13,6 +13,7 @@ summary: |
   This bitrise step creates a comment for merges and posts them in correct ticket.
 description: |
   This bitrise step creates a comment for merges and posts them in correct ticket.
+  Also it moves ticket from code review column to next one.
 website: https://github.com/Siemian/bitrise-step-ng-jira-step
 source_code_url: https://github.com/Siemian/bitrise-step-ng-jira-step
 support_url: https://github.com/Siemian/bitrise-step-ng-jira-step/issues
