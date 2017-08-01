@@ -22,7 +22,7 @@ if [[ $BITRISE_GIT_MESSAGE != *"Merge pull request"* ]]; then
   exit 0
 fi
 
-JIRA_ISSUE=`echo $BITRISE_GIT_MESSAGE | egrep -o '[A-Z]+-[0-9]+'`
+JIRA_ISSUE=`echo $BITRISE_GIT_MESSAGE | egrep -o '[A-Z]+-[0-9]+'` -m 1
 
 if [ ! "$JIRA_ISSUE" ]; then
 	echo Commit message does not contain correct JIRA_ISSUE
