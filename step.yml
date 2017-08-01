@@ -64,24 +64,30 @@ toolkit:
 
 
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
+  - JIRA_USER:
     opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
+      title: "JIRA User"
+      summary: JIRA User
       description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
+        User used to post comment
       is_expand: true
       is_required: true
       value_options: []
-
-outputs:
-  - EXAMPLE_STEP_OUTPUT:
+  - JIRA_PASSWORD:
     opts:
-      title: "Example Step Output"
-      summary: Summary. No more than 2-3 sentences.
+      title: "JIRA Password"
+      summary: Password for supplied user
       description: |
-        Description of this output.
-
-        Can be Markdown formatted text.
+        Password is used to authenticate with JIRA API
+      is_expand: true
+      is_required: true
+      value_options: []
+  - JIRA_HOST:
+    opts:
+      title: "JIRA Host"
+      summary: The host used to connect with JIRA API
+      description: |
+        ex.: https://netguru.atlassian.net
+      is_expand: true
+      is_required: true
+      value_options: []
