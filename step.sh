@@ -39,9 +39,9 @@ export COMMENT_BODY="Pull request for task $JIRA_ISSUE was successfuly merged\nB
 curl -D- -o /dev/null -u $JIRA_USER:$JIRA_PASSWORD -X POST -H "Content-Type: application/json" -d "{\"body\": \"$COMMENT_BODY\"}" $JIRA_HOST/rest/api/2/issue/$JIRA_ISSUE/comment
 
 # move to ready for qa
-res=$( curl -w %{http_code} -s --output /dev/null -D- -u $JIRA_USER:$JIRA_PASSWORD -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"281\"} }" $JIRA_HOST/rest/api/2/issue/$JIRA_ISSUE/transitions)
+res=$( curl -w %{http_code} -s --output /dev/null -D- -u $JIRA_USER:$JIRA_PASSWORD -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$JIRA_QA_TRANSITION_ID\"} }" $JIRA_HOST/rest/api/2/issue/$JIRA_ISSUE/transitions)
 
 # if task was no_qa move directly to client
 if [ "$res" != "204" ]; then
-	curl -D- -o /dev/null -u $JIRA_USER:$JIRA_PASSWORD -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"371\"} }" $JIRA_HOST/rest/api/2/issue/$JIRA_ISSUE/transitions
+	curl -D- -o /dev/null -u $JIRA_USER:$JIRA_PASSWORD -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$JIRA_NO_QA_TRANSITION_ID\"} }" $JIRA_HOST/rest/api/2/issue/$JIRA_ISSUE/transitions
 fi
