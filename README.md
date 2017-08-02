@@ -12,9 +12,9 @@ Add step definition.
       - git::https://github.com/Siemian/bitrise-step-ng-jira-step.git@master:
           title: ng-jira-step
           inputs:
-            - host: $JIRA\\_HOST
-            - user: $JIRA\\_USER
-            - password: $JIRA\\_PASSWORD
+            - host: $JIRA_HOST
+            - user: $JIRA_USER
+            - password: $JIRA_PASSWORD
             - qa_transition_id: $JIRA_QA_TRANSACTION_ID
             - no_qa_transition_id: $JIRA_NO_QA_TRANSACTION_ID
 ```
