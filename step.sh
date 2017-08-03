@@ -33,7 +33,7 @@ envman add --key JIRA_ISSUE --value $JIRA_ISSUE
 
 # Generate comment body
 
-export COMMENT_BODY="Pull request for task $JIRA_ISSUE was successfuly merged\nBuild number: $BITRISE_BUILD_NUMBER\nDownload url: $BITRISE_BUILD_URL"
+export COMMENT_BODY="Pull request for task $JIRA_ISSUE was successfuly merged\nBuild number: $BITRISE_BUILD_NUMBER\nDownload url: $BITRISE_PUBLIC_INSTALL_PAGE_URL"
 comment_url=$host/rest/api/2/issue/$JIRA_ISSUE/comment
 echo "$comment_url" 
 # add comment
