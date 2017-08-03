@@ -42,7 +42,7 @@ curl -D- -o /dev/null -u $user:$password -X POST -H "Content-Type: application/j
 transition_url=$host/rest/api/2/issue/$JIRA_ISSUE/transitions
 echo "$transition_url"
 # move to ready for qa
-res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" transition_url)
+res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" $transition_url)
 
 # if task was no_qa move directly to client
 if [ "$res" != "204" ]; then
