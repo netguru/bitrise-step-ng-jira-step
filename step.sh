@@ -23,9 +23,15 @@ if [ ! "$jira_issue" ]; then
 	exit -1
 fi
 
+# Extract Pull Request identifier from commit message
+
+pull_request_id=`echo $BITRISE_GIT_MESSAGE | egrep -o '[0-9]+' | head -n 1`
+repository_url=`echo "$GIT_REPOSITORY_URL" | sed 's/.git//g' | tr : /`
+pull_request_url="https://$repository_url/pull/$pull_request_id"
+
 # Generate comment body
 
-comment_body="Pull request for task $jira_issue was successfuly merged\nBuild number: $BITRISE_BUILD_NUMBER"
+comment_body="[Pull Request|$pull_request_url] for task $jira_issue was successfuly merged\nBuild number: $BITRISE_BUILD_NUMBER"
 if $add_bitrise_public_download_url = true; then 
 	comment_body="$comment_body\nDownload url: $BITRISE_PUBLIC_INSTALL_PAGE_URL"
 fi
