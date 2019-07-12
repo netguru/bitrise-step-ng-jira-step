@@ -42,14 +42,14 @@ echo $comment_body
 comment_url=$host/rest/api/2/issue/$jira_issue/comment
 echo "$comment_url"
 # add comment
-curl -D- -o /dev/null -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"body\": \"$comment_body\"}" $comment_url
+curl -D- -o /dev/null -u $user:$api_token -X POST -H "Content-Type: application/json" -d "{\"body\": \"$comment_body\"}" $comment_url
 
 transition_url=$host/rest/api/2/issue/$jira_issue/transitions
 echo "$transition_url"
 # move to ready for qa
-res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" $transition_url)
+res=$( curl -w %{http_code} -s --output /dev/null -D- -u $user:$api_token -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$qa_transition_id\"} }" $transition_url)
 
 # if task was no_qa move directly to client
 if [ "$res" != "204" ]; then
-	curl -D- -o /dev/null -u $user:$password -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$no_qa_transition_id\"} }" $host/rest/api/2/issue/$jira_issue/transitions
+	curl -D- -o /dev/null -u $user:$api_token -X POST -H "Content-Type: application/json" -d "{\"transition\": {\"id\" : \"$no_qa_transition_id\"} }" $host/rest/api/2/issue/$jira_issue/transitions
 fi
