@@ -49,12 +49,13 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []
-  - password:
+  - api_token:
     opts:
-      title: "JIRA Password"
-      summary: Password for supplied user
+      title: "JIRA API Token"
+      summary: Token created for supplied user
       description: |
-        Password is used to authenticate with JIRA API
+        API token is used to authenticate with JIRA API. 
+        It can be created here: https://id.atlassian.com/manage/api-tokens?_ga=2.43946604.875494627.1562923837-75487430.1434788493
       is_expand: true
       is_required: true
       value_options: []

@@ -14,14 +14,14 @@ Add step definition.
           inputs:
             - host: $JIRA_HOST
             - user: $JIRA_USER
-            - password: $JIRA_PASSWORD
+            - api_token: $JIRA_API_TOKEN
             - qa_transition_id: $JIRA_QA_TRANSACTION_ID
             - no_qa_transition_id: $JIRA_NO_QA_TRANSACTION_ID
 ```
-Provide correct user and password. 
+Provide correct user and api token. 
 To findout correct transtion id run 
 ```bash
-curl -D- -u user:password -X GET JIRA_HOST/rest/api/2/issue/JIRA_ISSUE/transitions
+curl -D- -u user:api_token -X GET JIRA_HOST/rest/api/2/issue/JIRA_ISSUE/transitions
 ```
 
 As a $JIRA_ISSUE(format: XXX-1234) use id for the ticket that is currently in code review column
