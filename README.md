@@ -1,6 +1,6 @@
 # ng-jira-step
 
-This bitrise step creates a comment for merges, posts them in correct ticket and moves ticket from Code Review column to QA or directly to Client column if it's no_qa.
+This bitrise step creates a comment for merges, posts them in correct ticket and moves ticket from Code Review column to QA or directly to Client/Done column if it's no_qa.
 
 
 ## How to use this Step
