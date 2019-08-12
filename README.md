@@ -9,7 +9,7 @@ Add step definition.
 ```YML
  comment:
     steps:
-      - git::https://github.com/Siemian/bitrise-step-ng-jira-step.git@master:
+      - git::https://github.com/netguru/bitrise-step-ng-jira-step.git@master:
           title: ng-jira-step
           inputs:
             - host: $JIRA_HOST
