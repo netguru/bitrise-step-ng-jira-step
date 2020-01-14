@@ -68,6 +68,28 @@ inputs:
       is_expand: true
       is_required: true
       value_options: []
+  - pull_request_id:
+    opts:
+      title: "Pull Request number"
+      summary: |
+        When provided along with jira issue value, step will not try to extract those values automatically.
+        Provide those values when build was not triggered by merge commit.
+      description: |
+        ex.: 111
+      is_expand: true
+      is_required: false
+      value_options: []   
+  - jira_issue:
+    opts:
+      title: "JIRA Issue ID"
+      summary: |
+        When provided along with Pull Request number issue value, step will not try to extract those values automatically.
+        Provide those values when build was not triggered by merge commit.
+      description: |
+        ex.: ASD-123
+      is_expand: true
+      is_required: false
+      value_options: []     
   - qa_transition_id:
     opts:
       title: "JIRA QA transition ID"
