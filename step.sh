@@ -11,19 +11,9 @@ if [ -z "$add_bitrise_public_download_url" ]; then
 	add_bitrise_public_download_url=true
 fi
 
-echo "pull request id: $pull_request_id"
-echo "jira issue: $jira_issue"
-
-if [ -z "$pull_request_id" ]; then
-	echo "pull_request_id not set"
-fi
-
-if [ -z "$jira_issue" ]; then
-	echo "jira_issue not set"
-fi
-
 # When either is unset
 if [ -z "$pull_request_id" ] || [ -z "$jira_issue" ]; then
+	echo "Extracting values from merge commit message."
 	# Check if this is merge commit
 	if [[ $BITRISE_GIT_MESSAGE != *"Merge pull request"* ]]; then
 		echo "This commit it's not a merge commit"
