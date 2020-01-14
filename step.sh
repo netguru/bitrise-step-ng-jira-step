@@ -12,7 +12,11 @@ if [ -z "$add_bitrise_public_download_url" ]; then
 fi
 
 if [ -z "$pull_request_id" ]; then
-	add_bitrise_public_download_url=true
+	echo "pull_request_id not set"
+fi
+
+if [ -z "$jira_issue" ]; then
+	echo "jira_issue not set"
 fi
 
 # When either is unset
