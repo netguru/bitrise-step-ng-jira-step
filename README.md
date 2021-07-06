@@ -26,6 +26,8 @@ curl -D- -u user:api_token -X GET JIRA_HOST/rest/api/2/issue/JIRA_ISSUE/transiti
 
 As a $JIRA_ISSUE(format: XXX-1234) use id for the ticket that is currently in code review column
 
+As a $JIRA_USER(format: xxxxx@x.x) use the email address of the user who has sufficient privileges to the JIRA project.
+
 ## About
 
 This project is made with <3 by [Netguru](https://netguru.co/opensource).
